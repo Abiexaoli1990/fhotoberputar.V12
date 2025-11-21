@@ -146,6 +146,10 @@
                 transform: rotateY(calc(var(--i) * 36deg)) translateZ(180px) scale(1.1); 
                 box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); border: 2px solid transparent; border-image: linear-gradient(to right, #ff0000, #ffff00, #00ff00) 1; z-index: 999; 
             }
+            .box span img { 
+                width: 100%; 
+                height: 100%; 
+            }
 
             /* Style khusus copy di mobile portrait */
             .copy-container {
@@ -177,7 +181,6 @@
         }
 
         /* --- MEDIA QUERY BARU: MOBILE LANDSCAPE (Tablet Kecil & Ponsel) --- */
-        /* Menyesuaikan tampilan agar seperti desktop saat mobile dalam mode landscape */
         @media screen and (orientation: landscape) and (max-width: 920px) {
             /* Menggunakan kembali padding/header desktop */
             body { padding-top: 70px; padding-bottom: 50px; }
@@ -186,39 +189,49 @@
             #header-logo { width: 60px; height: 60px; }
             .nav-container { padding: 10px 15px; }
             .dropdown-toggle { font-size: 1.8rem; }
-            .dropdown-menu { right: 15px; min-width: 110px; } /* Gaya desktop */
+            .dropdown-menu { right: 15px; min-width: 110px; } 
 
-            /* Menerapkan kembali gaya GALERI DESKTOP */
+            /* Menerapkan gaya GALERI KHUSUS LANDSCAPE (UKURAN 50x50) */
             .box { 
-                width: 160px; 
-                height: 240px; 
-                margin-bottom: 30px; 
+                width: 50px; 
+                height: 50px; 
+                margin-bottom: 20px; 
             }
             .box span { 
-                transform: rotateY(calc(var(--i) * 36deg)) translateZ(360px); 
+                /* translateZ disesuaikan untuk ukuran 50px */
+                transform: rotateY(calc(var(--i) * 36deg)) translateZ(80px); 
+                border: 2px solid transparent; /* Mengurangi tebal border */
             }
             .box span:hover, .box span:focus-within { 
-                transform: rotateY(calc(var(--i) * 36deg)) translateZ(360px) scale(1.1); 
-                box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); border: 4px solid transparent; border-image: linear-gradient(to right, #ff0000, #ffff00, #00ff00) 1; 
+                /* Menyesuaikan translateZ pada hover */
+                transform: rotateY(calc(var(--i) * 36deg)) translateZ(80px) scale(1.5); 
+                box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); 
+                border: 2px solid transparent;
             }
 
-            /* Menerapkan kembali gaya COPY CONTAINER DESKTOP */
+            /* MENGUBAH UKURAN FOTO ROTASI JADI 50x50 */
+            .box span img { 
+                width: 50px; 
+                height: 50px; 
+                object-fit: cover; 
+            }
+
+            /* Menerapkan kembali gaya COPY CONTAINER DESKTOP, tapi lebih kecil */
             .copy-container {
-                margin-top: 50px; 
-                margin-bottom: -90px; 
-                flex-direction: row; /* Kembali ke tata letak baris */
-                width: 90%; 
-                max-width: 600px;
+                margin-top: 30px; 
+                margin-bottom: -70px; 
+                flex-direction: row; 
+                width: 95%; 
+                max-width: 500px;
             }
             
             #myInput { 
-                width: 100%;
-                margin-bottom: 0;
-                font-size: 1rem; /* Kembali ke ukuran font desktop */
+                font-size: 0.8rem; 
+                padding: 5px 10px;
             }
             
             .copy-btn {
-                width: auto; /* Biarkan tombol kembali ke lebar konten */
+                width: auto; 
             }
 
             /* Menerapkan kembali gaya NAVIGASI BAWAH DESKTOP */
